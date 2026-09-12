@@ -1,0 +1,13 @@
+.nav-styling {
+    display: flex;
+    background-color: rgb(21, 21, 116);
+    height: 45px;
+    font-size: 25px;
+    align-items: center;
+    justify-content: end;
+}
+
+.dash-styling {
+    height: 100vh;
+    background-color: rgb(66, 75, 75);
+}
