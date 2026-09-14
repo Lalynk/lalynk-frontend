@@ -3,14 +3,18 @@ import { Link } from "react-router-dom"
 import "./Home.css"
 import { useEffect, useState } from "react"
 import { getUser } from "../services/authService";
+import About from "../components/About";
 
 function Home() {
 
     const [isAuthenticated, setAuthenticated] = useState(false);
+    
 
 
     useEffect(() => {getUser().then(user => 
-        setAuthenticated(user.authenticated))}, [])
+        setAuthenticated(user.authenticated));
+    
+    }, [])
 
     return <>
         <div className="main-styling">
@@ -21,7 +25,7 @@ function Home() {
         {isAuthenticated && (
         <>
             <Link to="/dashboard">Till dashboard</Link>
-            <button onClick={()=>setAuthenticated(false)}>logga ut</button>
+            <button>logga ut</button>
         </>
         )}
 
@@ -30,6 +34,7 @@ function Home() {
             <button onClick={() => {window.location.href = "http://localhost:8080/auth/login"}}>Logga in</button>
         </>
         }
+        <About></About>
     </div>
     </>
         
