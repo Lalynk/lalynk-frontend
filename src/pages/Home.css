@@ -1,10 +1,47 @@
+.home {
+    min-height: 100vh;
+    padding: 40px;
+}
 
+.hero {
+    max-width: 800px;
+    margin: 100px auto;
+    text-align: center;
+}
 
-.main-styling {
-    background-color: rgb(66, 75, 75);
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.logged-in {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    gap: 15px;
+}
+
+.primary-button,
+.secondary-button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.primary-button {
+    background: #222;
+    color: white;
+}
+
+.secondary-button {
+    background: white;
+    color: #222;
+    border: 1px solid #ccc;
 }

@@ -18,16 +18,18 @@ const handleLogout = async () => {
 
 
     return<>
-    <div className="dash-styling">
-        <nav className="nav-styling">
+    <div className="dashboard">
+        <nav className="dashboard-nav">
             <Link to="/">Home</Link>
             <button onClick={handleLogout}>Logga ut</button>
         </nav>
 
-        <h1>Dashboard</h1>
+        <main className="dashboard-content">
+            <h1>Dashboard</h1>
+            <CreateSecret></CreateSecret>
+            <MySecrets></MySecrets>
 
-        <CreateSecret></CreateSecret>
-        <MySecrets></MySecrets>
+        </main>
     </div>
     </>
 }

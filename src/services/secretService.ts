@@ -4,7 +4,7 @@ import { getCsrfToken } from "./authService";
 const baseUrl = "http://localhost:8080";
 
 
-export async function createSecret(content: string): Promise<SecretDTO> {
+export async function createSecret(content: string, expiresAt: string | null): Promise<SecretDTO> {
 
     const token = getCsrfToken();
 
@@ -20,7 +20,10 @@ export async function createSecret(content: string): Promise<SecretDTO> {
             "Content-Type": "application/json",
             "X-XSRF-TOKEN": token
         },
-        body: JSON.stringify({content})
+        body: JSON.stringify({
+            expiresAt,
+            content
+        })
 
     });
 
@@ -57,7 +60,6 @@ export async function revokeSecret(id: string) {
 
 
 }
-
 
 
 export async function getSecrets() {
