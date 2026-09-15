@@ -32,8 +32,13 @@ function PublicSecret() {
         return (
             <div className="public-secret">
                 <main className="public-secret-card">
+                    <div className="secret-label">Lalynk</div>
+
                     <h1>Secret unavailable</h1>
-                    <p>{error}</p>
+
+                    <p className="error-message">
+                        {error}
+                    </p>
                 </main>
             </div>
         );
@@ -43,7 +48,8 @@ function PublicSecret() {
         return (
             <div className="public-secret">
                 <main className="public-secret-card">
-                    <p>Loading secret...</p>
+                    <div className="secret-label">Lalynk</div>
+                    <p className="loading-message">Loading secret...</p>
                 </main>
             </div>
         );
@@ -52,6 +58,11 @@ function PublicSecret() {
     return (
         <div className="public-secret">
             <main className="public-secret-card">
+                <div className="secret-label">
+                    <span className="status-dot"></span>
+                    Secure secret
+                </div>
+
                 <h1>Your secret</h1>
 
                 <div className="secret-box">
@@ -61,8 +72,12 @@ function PublicSecret() {
                 <button
                     className="copy-button"
                     onClick={async () => {
-                        await navigator.clipboard.writeText(content);
-                        setCopied(true);
+                        try {
+                            await navigator.clipboard.writeText(content);
+                            setCopied(true);
+                        } catch (error) {
+                            console.error("Could not copy secret:", error);
+                        }
                     }}
                 >
                     {copied ? "Copied!" : "Copy secret"}
