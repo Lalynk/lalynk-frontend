@@ -1,78 +1,58 @@
 .about-page {
     min-height: 100vh;
-
     background: #0b0d10;
     color: #f5f5f5;
 }
-
 
 /* Navigation */
 
 .about-nav {
     width: 100%;
     max-width: 1200px;
-
     margin: 0 auto;
-
     padding: 24px 32px;
-
     box-sizing: border-box;
-
     display: flex;
     align-items: center;
 }
 
 .about-logo {
     color: #f5f5f5;
-
     text-decoration: none;
-
     font-size: 21px;
     font-weight: 600;
-
     letter-spacing: -0.5px;
 }
-
 
 /* Main */
 
 .about-content {
     max-width: 900px;
-
     margin: 0 auto;
-
     padding: 100px 24px 80px;
 }
-
 
 /* Intro */
 
 .about-intro {
     max-width: 750px;
-
     margin-bottom: 100px;
 }
 
 .about-label {
     margin: 0 0 16px;
-
     color: #8fa88f;
-
     font-size: 12px;
     font-weight: 600;
-
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
 .about-intro h1 {
     margin: 0 0 24px;
-
     font-size: 56px;
     line-height: 1.08;
-
     letter-spacing: -2px;
-
     font-weight: 600;
 }
 
@@ -82,53 +62,39 @@
 
 .about-lead {
     max-width: 650px;
-
     margin: 0;
-
     color: #9ca3af;
-
     font-size: 18px;
     line-height: 1.7;
 }
-
 
 /* Sections */
 
 .about-section {
     display: grid;
-
     grid-template-columns: 70px 1fr;
-
     gap: 30px;
-
     padding: 45px 0;
-
     border-top: 1px solid #222730;
 }
 
 .section-number {
     color: #555d69;
-
     font-size: 12px;
     font-weight: 600;
-
     letter-spacing: 1px;
 }
 
 .about-section h2 {
     margin: 0 0 14px;
-
     font-size: 21px;
     font-weight: 500;
 }
 
 .about-section p {
     max-width: 650px;
-
     margin: 0 0 16px;
-
     color: #8b929e;
-
     font-size: 15px;
     line-height: 1.7;
 }
@@ -137,121 +103,82 @@
     margin-bottom: 0;
 }
 
-
 /* Security card */
 
 .security-card {
     max-width: 600px;
-
     margin-top: 28px;
-
     padding: 20px;
-
     background: #101318;
-
     border: 1px solid #222730;
     border-radius: 10px;
 }
 
 .security-card-header {
     display: flex;
-
     align-items: center;
-
     gap: 9px;
-
     margin-bottom: 10px;
-
     color: #d1d5db;
-
     font-size: 14px;
 }
 
 .security-status {
     width: 7px;
     height: 7px;
-
     border-radius: 50%;
-
     background: #8fa88f;
-
     box-shadow: 0 0 8px rgba(143, 168, 143, 0.4);
 }
 
 .security-card p {
     margin: 0;
-
     font-size: 14px;
 }
-
 
 /* Planned badge */
 
 .planned-badge {
     display: inline-block;
-
     margin-top: 8px;
-
     padding: 6px 10px;
-
     border-radius: 6px;
-
     background: #16191e;
-
     border: 1px solid #292f38;
-
     color: #737b87;
-
     font-size: 12px;
 }
-
 
 /* CTA */
 
 .about-cta {
     margin-top: 70px;
-
     padding: 35px;
-
     background: #101318;
-
     border: 1px solid #222730;
     border-radius: 12px;
-
     display: flex;
-
     justify-content: space-between;
     align-items: center;
-
     gap: 20px;
 }
 
 .about-cta p {
     margin: 0;
-
     color: #d1d5db;
-
     font-size: 15px;
 }
 
 .about-button {
     padding: 10px 18px;
-
     border-radius: 7px;
-
     background: #8fa88f;
-
     color: #0b0d10;
-
     border: 1px solid #8fa88f;
-
     text-decoration: none;
-
     font-size: 14px;
     font-weight: 500;
-
     white-space: nowrap;
-
     transition:
         background 0.15s,
         border-color 0.15s;
@@ -259,32 +186,23 @@
 
 .about-button:hover {
     background: #9eb89e;
-
     border-color: #9eb89e;
 }
-
 
 /* Footer */
 
 .about-footer {
     max-width: 900px;
-
     margin: 0 auto;
-
     padding: 24px;
-
     border-top: 1px solid #222730;
-
     color: #555d69;
-
     font-size: 12px;
 }
-
 
 /* Mobile */
 
 @media (max-width: 700px) {
-
     .about-nav {
         padding: 20px;
     }
@@ -299,7 +217,6 @@
 
     .about-intro h1 {
         font-size: 42px;
-
         letter-spacing: -1.5px;
     }
 
@@ -309,23 +226,18 @@
 
     .about-section {
         grid-template-columns: 1fr;
-
         gap: 15px;
-
         padding: 35px 0;
     }
 
     .about-cta {
         flex-direction: column;
-
         align-items: flex-start;
-
         margin-top: 50px;
     }
 
     .about-footer {
         margin: 0 20px;
-
         padding-left: 0;
         padding-right: 0;
     }
