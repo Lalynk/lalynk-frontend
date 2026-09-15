@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { getSecrets } from "../services/secretService";
+import { getSecrets, revokeSecret } from "../services/secretService";
+import type { SecretDTO } from "../entities/SecretDTO";
 
 function MySecrets() {
-    const [secrets, setSecrets] = useState<any[]>([]);
+    const [secrets, setSecrets] = useState<SecretDTO[]>([]);
     useEffect(() => {
         getSecrets().then(data => {
             setSecrets(data);
@@ -10,14 +11,34 @@ function MySecrets() {
     }, []);
 
 
+    async function handleRevoke(id: string) {
+
+        try {
+            const response = await revokeSecret(id);
+            const data = await getSecrets();
+            setSecrets(data);
+
+
+        } catch (error) {
+            console.error("Could not revoke secret:", error);
+        }
+        
+
+
+    }
+
 
 
     return (
         <div>
             <h2>My secrets</h2>
-            {secrets.map((secret: any) => (
+            {secrets.map((secret) => (
                 <div key={secret.id}>
-                    {secret.content}
+                    <div>{secret.content}
+                        <div>{secret.expiresAt}</div>
+                    <button onClick={() => handleRevoke(secret.id)}>Revoke</button>
+
+                    </div>
                 </div>
             ))}
         </div>

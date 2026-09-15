@@ -8,11 +8,15 @@ import About from "../components/About";
 function Home() {
 
     const [isAuthenticated, setAuthenticated] = useState(false);
+    const [email, setEmail] = useState("");
     
 
 
-    useEffect(() => {getUser().then(user => 
-        setAuthenticated(user.authenticated));
+    useEffect(() => {getUser().then(user => {
+        setAuthenticated(user.authenticated);
+        setEmail(user.email);
+    }
+    );
     
     }, [])
 
@@ -26,6 +30,7 @@ function Home() {
         <>
             <Link to="/dashboard">Till dashboard</Link>
             <button>logga ut</button>
+            <div>Hello {email}</div>
         </>
         )}
 

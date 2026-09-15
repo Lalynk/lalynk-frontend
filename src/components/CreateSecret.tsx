@@ -4,6 +4,7 @@ import { createSecret } from "../services/secretService";
 function CreateSecret() {
 
     const [content, setContent] = useState("");
+    const [expiresAt, setExpiresAt] = useState("");
 
     const [secretUrl, setSecretUrl] = useState<string|null>(null);
 
@@ -26,6 +27,13 @@ function CreateSecret() {
         <div>Skapa en secret</div>
     
         <input value={content} onChange={(event) => setContent(event.target.value)}></input>
+        <input
+            type= "datetime-local"
+            value= {expiresAt}
+            onChange={(event) => setExpiresAt(event.target.value)}
+        ></input>
+
+
         <button onClick={() => handleCreateSecret()}>Create secret</button>
 
         {secretUrl && (

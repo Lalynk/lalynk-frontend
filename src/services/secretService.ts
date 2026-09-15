@@ -32,6 +32,33 @@ export async function createSecret(content: string): Promise<SecretDTO> {
 
 }
 
+export async function revokeSecret(id: string) {
+
+    const token = getCsrfToken();
+
+    if(token== null) {
+        throw new Error("CSRF token is missing");
+    }
+
+    const response = await fetch(baseUrl + `/secrets/${id}/revoke`,
+        {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "X-XSRF-TOKEN": token
+            }
+
+        }
+    );
+
+    if(!response.ok) {
+        throw new Error("Could not revoke secret");
+    }
+
+
+}
+
+
 
 export async function getSecrets() {
     const response = await fetch(baseUrl + "/secrets", {

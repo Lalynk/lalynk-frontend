@@ -1,4 +1,4 @@
-import type { UserDTO } from "../entities/AuthDTO";
+import type { UserDTO } from "../entities/UserDTO";
 
 const baseUrl = "http://localhost:8080";
 
@@ -24,10 +24,6 @@ export async function initializeAuth() {
     }
 }
 
-
-
-
-
 export async function refreshCsrfToken() {
 
     const response = await fetch(baseUrl + "/auth/csrf", {
@@ -38,13 +34,7 @@ export async function refreshCsrfToken() {
         throw new Error("Could not fetch CSRF token");
     }
 
-    
-
     const data = await response.json();
-
-    
-    console.log("TOKEN FROM BACKEND:", data.token);
-
     csrfToken = data.token;
 }
 

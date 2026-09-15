@@ -25,6 +25,7 @@ const handleLogout = async () => {
         </nav>
 
         <h1>Dashboard</h1>
+
         <CreateSecret></CreateSecret>
         <MySecrets></MySecrets>
     </div>

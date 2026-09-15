@@ -23,7 +23,7 @@ function PublicSecret() {
 
                 setContent(secret.content);
             } catch (error) {
-                setError("Could not retrieve secret.");
+                setError("This secret is no longer available.");
             }
         }
 
