@@ -1,9 +1,7 @@
-export interface SecretDTO {
-    id: string,
-    createdAt: string;
-    expiresAt: string | null;
-    consumedAt: string | null;
-    revokedAt: string | null;
+import type { SecretSummaryDTO } from "./SecretSummaryDTO";
+
+export interface SecretDTO extends SecretSummaryDTO{
+
     content: string;
-    publicToken: string;
+
 }

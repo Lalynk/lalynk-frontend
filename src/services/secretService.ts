@@ -1,7 +1,8 @@
 import type { SecretDTO } from "../entities/SecretDTO";
+import type { SecretSummaryDTO } from "../entities/SecretSummaryDTO";
 import { getCsrfToken } from "./authService";
 
-const baseUrl = "http://localhost:8080";
+import { baseUrl } from "../config";
 
 
 export async function createSecret(content: string, expiresAt: string | null): Promise<SecretDTO> {
@@ -61,15 +62,33 @@ export async function revokeSecret(id: string) {
 
 }
 
-
-export async function getSecrets() {
+export async function getSecrets(): Promise<SecretSummaryDTO[]> {
     const response = await fetch(baseUrl + "/secrets", {
         credentials: "include"
     });
+
+    if(!response.ok) {
+        throw new Error("Could not fetch secrets");
+    }
+
     
     return await response.json();
 
 }
+
+
+export async function getSecretById(secretId: string): Promise<SecretDTO>  {
+    const response = await fetch(baseUrl+ `/secrets/${secretId}`,{
+        credentials: "include"
+    });
+
+    if(!response.ok) {
+        throw new Error("could not fetch secret");
+    }
+
+    return await response.json();
+}
+
 
 
 export async function getPublicSecret(publicToken: string) {

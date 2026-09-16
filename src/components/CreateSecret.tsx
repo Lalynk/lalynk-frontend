@@ -4,7 +4,7 @@ import "./CreateSecret.css";
 
 function CreateSecret() {
   const [content, setContent] = useState("");
-  const [expiresAt, setExpiresAt] = useState("");
+  const [expiration, setExpiration] = useState("7d");
 
   const [secretUrl, setSecretUrl] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -16,13 +16,20 @@ function CreateSecret() {
     setLoading(true);
 
     try {
-      let expiration: string | null = null;
+      const expirationMap: Record<string, number> = {
+        "1h": 60 * 60 * 1000,
+        "24h": 24 * 60 * 60 * 1000,
+        "7d": 7 * 24 * 60 * 60 * 1000,
+        "30d": 30 * 24 * 60 * 60 * 1000,
+      };
 
-      if (expiresAt !== "") {
-        expiration = new Date(expiresAt).toISOString();
-      }
+      const expirationTime = expirationMap[expiration];
 
-      const secret = await createSecret(content, expiration);
+      const expiresAt = new Date(
+        Date.now() + expirationTime
+      ).toISOString();
+
+      const secret = await createSecret(content, expiresAt);
 
       const url = `${window.location.origin}/s/${secret.publicToken}`;
 
@@ -38,7 +45,7 @@ function CreateSecret() {
 
   function handleCreateAnother() {
     setContent("");
-    setExpiresAt("");
+    setExpiration("7d");
     setSecretUrl(null);
     setCopied(false);
     setError(null);
@@ -58,12 +65,16 @@ function CreateSecret() {
       </label>
 
       <label>
-        Expires at
-        <input
-          type="datetime-local"
-          value={expiresAt}
-          onChange={(event) => setExpiresAt(event.target.value)}
-        />
+        Expiration
+        <select
+          value={expiration}
+          onChange={(event) => setExpiration(event.target.value)}
+        >
+          <option value="1h">1 hour</option>
+          <option value="24h">24 hours</option>
+          <option value="7d">7 days</option>
+          <option value="30d">30 days</option>
+        </select>
       </label>
 
       <button
@@ -91,7 +102,9 @@ function CreateSecret() {
             {copied ? "Copied!" : "Copy link"}
           </button>
 
-          <button onClick={handleCreateAnother}>Create another secret</button>
+          <button onClick={handleCreateAnother}>
+            Create another secret
+          </button>
         </div>
       )}
     </div>

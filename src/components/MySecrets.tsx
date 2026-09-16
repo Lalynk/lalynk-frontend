@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
-import { getSecrets, revokeSecret } from "../services/secretService";
+import {
+  getSecrets,
+  getSecretById,
+  revokeSecret,
+} from "../services/secretService";
 import type { SecretDTO } from "../entities/SecretDTO";
+import type { SecretSummaryDTO } from "../entities/SecretSummaryDTO";
 import "./MySecrets.css";
 
 function MySecrets() {
-  const [secrets, setSecrets] = useState<SecretDTO[]>([]);
+  const [secrets, setSecrets] = useState<SecretSummaryDTO[]>([]);
   const [expandedSecretId, setExpandedSecretId] = useState<string | null>(null);
+  const [loadedSecret, setLoadedSecret] = useState<SecretDTO | null>(null);
   const [copiedSecretId, setCopiedSecretId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -14,18 +20,40 @@ function MySecrets() {
     });
   }, []);
 
+  async function handleSecretClick(id: string) {
+    if (expandedSecretId === id) {
+      setExpandedSecretId(null);
+      setLoadedSecret(null);
+      return;
+    }
+
+    try {
+      const secret = await getSecretById(id);
+
+      setLoadedSecret(secret);
+      setExpandedSecretId(id);
+    } catch (error) {
+      console.error("Could not fetch secret:", error);
+    }
+  }
+
   async function handleRevoke(id: string) {
     try {
       await revokeSecret(id);
 
       const data = await getSecrets();
       setSecrets(data);
+
+      if (expandedSecretId === id) {
+        setExpandedSecretId(null);
+        setLoadedSecret(null);
+      }
     } catch (error) {
       console.error("Could not revoke secret:", error);
     }
   }
 
-  function getSecretStatus(secret: SecretDTO) {
+  function getSecretStatus(secret: SecretSummaryDTO) {
     if (secret.revokedAt) {
       return "Revoked";
     }
@@ -41,7 +69,7 @@ function MySecrets() {
     return "Active";
   }
 
-  async function handleCopyLink(secret: SecretDTO) {
+  async function handleCopyLink(secret: SecretSummaryDTO) {
     const url = `${window.location.origin}/s/${secret.publicToken}`;
 
     await navigator.clipboard.writeText(url);
@@ -59,22 +87,30 @@ function MySecrets() {
 
         return (
           <div className="secret-card" key={secret.id}>
-            <div
-              className="secret-header"
-              onClick={() => setExpandedSecretId(isExpanded ? null : secret.id)}
-            >
-              <div className="secret-content-wrapper">
-                <div
-                  className={`secret-content ${isExpanded ? "expanded" : ""}`}
-                >
-                  {secret.content}
-                </div>
+            <div className="secret-header">
+              <div
+                className={`secret-expand-area ${
+                  isExpanded ? "expanded" : ""
+                }`}
+                onClick={() => handleSecretClick(secret.id)}
+              >
+                <div className="secret-content-wrapper">
+                  {isExpanded && loadedSecret && (
+                    <div className="secret-content expanded">
+                      {loadedSecret.content}
+                    </div>
+                  )}
 
-                {secret.content.length > 100 && (
                   <div className="expand-hint">
-                    {isExpanded ? "Click to collapse" : "Click to expand"}
+                    <span className="expand-icon">
+                      {isExpanded ? "⌄" : "›"}
+                    </span>
+
+                    {isExpanded
+                      ? "Click to collapse"
+                      : "Click to view secret"}
                   </div>
-                )}
+                </div>
               </div>
 
               <div className={`secret-status ${status.toLowerCase()}`}>
