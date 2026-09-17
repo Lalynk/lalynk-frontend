@@ -1,6 +1,6 @@
 import type { UserDTO } from "../entities/UserDTO";
 
-const baseUrl = "http://localhost:8080";
+import { baseUrl } from "../config";
 
 let csrfToken: string | null = null;
 

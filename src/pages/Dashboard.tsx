@@ -1,35 +1,46 @@
-import { Link } from "react-router-dom"
-import CreateSecret from "../components/CreateSecret"
-import "./Dashboard.css"
-import MySecrets from "../components/MySecrets"
-import { logout } from "../services/authService"
+import { Link } from "react-router-dom";
+import CreateSecret from "../components/CreateSecret";
+import MySecrets from "../components/MySecrets";
+import { logout } from "../services/authService";
+import "./Dashboard.css";
+
 function Dashboard() {
-
-
-
-const handleLogout = async () => {
+  const handleLogout = async () => {
     try {
-        await logout();
-        window.location.href = "/";
+      await logout();
+      window.location.href = "/";
     } catch (error) {
-        console.error("Logout failed:", error);
+      console.error("Logout failed:", error);
     }
-};
+  };
 
+  return (
+    <div className="dashboard">
+      <nav className="dashboard-nav">
+        <Link className="dashboard-logo" to="/">
+          Lalynk
+        </Link>
 
-    return<>
-    <div className="dash-styling">
-        <nav className="nav-styling">
-            <Link to="/">Home</Link>
-            <button onClick={handleLogout}>Logga ut</button>
-        </nav>
+        <div className="dashboard-nav-links">
+          <button onClick={handleLogout}>Log out</button>
+        </div>
+      </nav>
 
-        <h1>Dashboard</h1>
+      <main className="dashboard-content">
+        <section className="dashboard-header">
+          <p className="dashboard-label">Your workspace</p>
 
-        <CreateSecret></CreateSecret>
-        <MySecrets></MySecrets>
+          <h1>Dashboard</h1>
+
+          <p>Create and manage your secure one-time secrets.</p>
+        </section>
+
+        <CreateSecret />
+
+        <MySecrets />
+      </main>
     </div>
-    </>
+  );
 }
 
-export default Dashboard
+export default Dashboard;
