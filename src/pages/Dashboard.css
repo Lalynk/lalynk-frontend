@@ -4,8 +4,6 @@
     color: #f5f5f5;
 }
 
-/* Navigation */
-
 .dashboard-nav {
     width: 100%;
     max-width: 1200px;
@@ -62,8 +60,6 @@
     color: #f5f5f5;
 }
 
-/* Main content */
-
 .dashboard-content {
     width: 100%;
     max-width: 900px;
@@ -71,8 +67,6 @@
     padding: 80px 24px 100px;
     box-sizing: border-box;
 }
-
-/* Dashboard header */
 
 .dashboard-header {
     margin-bottom: 40px;
@@ -99,8 +93,6 @@
     color: #858c97;
     font-size: 16px;
 }
-
-/* Mobile */
 
 @media (max-width: 700px) {
     .dashboard-nav {
