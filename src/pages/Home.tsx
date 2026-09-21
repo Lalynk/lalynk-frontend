@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Home.css";
 import { getUser } from "../services/authService";
+import { baseUrl } from "../config";
 
 function Home() {
   const [isAuthenticated, setAuthenticated] = useState(false);
@@ -30,7 +31,7 @@ function Home() {
             <button
               className="nav-login"
               onClick={() => {
-                window.location.href = "http://localhost:8080/auth/login";
+                window.location.href = `${baseUrl}/auth/login`;
               }}
             >
               Log in
@@ -62,7 +63,7 @@ function Home() {
               <button
                 className="primary-button"
                 onClick={() => {
-                  window.location.href = "http://localhost:8080/auth/login";
+                  window.location.href = `${baseUrl}/auth/login`;
                 }}
               >
                 Get started

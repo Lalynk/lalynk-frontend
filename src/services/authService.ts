@@ -1,23 +1,19 @@
 import type { UserDTO } from "../entities/UserDTO";
-
 import { baseUrl } from "../config";
 
 let csrfToken: string | null = null;
 
 export async function getUser(): Promise<UserDTO> {
-
     const response = await fetch(baseUrl + "/auth/me", {
         credentials: "include"
     });
 
     const data = await response.json();
-
     return data
 
 }
 
 export async function initializeAuth() {
-
     const user = await getUser();
     if(user.authenticated) {
         await refreshCsrfToken();
@@ -25,7 +21,6 @@ export async function initializeAuth() {
 }
 
 export async function refreshCsrfToken() {
-
     const response = await fetch(baseUrl + "/auth/csrf", {
         credentials: "include"
     });
@@ -39,6 +34,7 @@ export async function refreshCsrfToken() {
 }
 
 export function getCsrfToken() {
+
     return csrfToken;
 }
 

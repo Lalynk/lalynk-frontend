@@ -1,14 +1,10 @@
 import type { SecretDTO } from "../entities/SecretDTO";
 import type { SecretSummaryDTO } from "../entities/SecretSummaryDTO";
 import { getCsrfToken } from "./authService";
-
 import { baseUrl } from "../config";
 
-
 export async function createSecret(content: string, expiresAt: string | null): Promise<SecretDTO> {
-
     const token = getCsrfToken();
-
 
     if(token== null) {
         throw new Error("CSRF token is missing");
@@ -37,7 +33,6 @@ export async function createSecret(content: string, expiresAt: string | null): P
 }
 
 export async function revokeSecret(id: string) {
-
     const token = getCsrfToken();
 
     if(token== null) {

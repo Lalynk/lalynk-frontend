@@ -1,5 +1,4 @@
 export interface SecretSummaryDTO{
-
     id: string,
     createdAt: string;
     expiresAt: string | null;

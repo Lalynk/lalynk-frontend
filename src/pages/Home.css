@@ -6,8 +6,6 @@
     flex-direction: column;
 }
 
-/* Navigation */
-
 .home-nav {
     width: 100%;
     max-width: 1200px;
@@ -62,8 +60,6 @@
 .nav-login {
     cursor: pointer;
 }
-
-/* Hero */
 
 .hero {
     max-width: 850px;
@@ -138,8 +134,6 @@
     transform: translateY(-1px);
 }
 
-/* Features */
-
 .features {
     max-width: 1100px;
     margin: 0 auto;
@@ -185,8 +179,6 @@
     line-height: 1.6;
 }
 
-/* Footer */
-
 .home-footer {
     max-width: 1100px;
     width: calc(100% - 48px);
@@ -207,8 +199,6 @@
 .home-footer a:hover {
     color: #f5f5f5;
 }
-
-/* Mobile */
 
 @media (max-width: 700px) {
     .home-nav {
