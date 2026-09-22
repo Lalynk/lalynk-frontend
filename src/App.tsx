@@ -6,6 +6,7 @@ import PublicSecret from "./pages/PublicSecret";
 import { useEffect } from "react";
 import { initializeAuth } from "./services/authService";
 import About from "./pages/About";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   useEffect(() => {
@@ -17,7 +18,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard></Dashboard>
+              </ProtectedRoute>
+            }
+          ></Route>
           <Route path="/s/:publicToken" element={<PublicSecret />} />
           <Route path="/about" element={<About></About>}></Route>
         </Routes>
