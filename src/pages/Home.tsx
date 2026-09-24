@@ -1,17 +1,11 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import "./Home.css";
-import { getUser } from "../services/authService";
 import { baseUrl } from "../config";
+import { getCurrentUser } from "../services/authService";
 
 function Home() {
-  const [isAuthenticated, setAuthenticated] = useState(false);
-
-  useEffect(() => {
-    getUser().then((user) => {
-      setAuthenticated(user.authenticated);
-    });
-  }, []);
+  const user = getCurrentUser();
+  const isAuthenticated = user?.authenticated ?? false;
 
   return (
     <div className="home">
