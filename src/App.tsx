@@ -8,6 +8,7 @@ import { initializeAuth } from "./services/authService";
 import About from "./pages/About";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Loading from "./components/Loading";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [authLoading, setAuthLoading] = useState(true);

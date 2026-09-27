@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import "./About.css";
+import Navbar from "../components/Navbar";
 
 function About() {
   return (
     <div className="about-page">
-      <nav className="about-nav">
-        <Link className="about-logo" to="/">
-          Lalynk
-        </Link>
-      </nav>
+      <Navbar></Navbar>
 
       <main className="about-content">
         <section className="about-intro">

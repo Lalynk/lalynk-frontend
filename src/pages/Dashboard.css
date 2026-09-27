@@ -4,62 +4,6 @@
     color: #f5f5f5;
 }
 
-.dashboard-nav {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 24px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    border-bottom: 1px solid #222730;
-}
-
-.dashboard-logo {
-    color: #f5f5f5;
-    text-decoration: none;
-    font-size: 21px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
-.dashboard-nav-links {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-.dashboard-nav-links a {
-    color: #9ca3af;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.dashboard-nav-links a:hover {
-    color: #f5f5f5;
-}
-
-.dashboard-nav-links button {
-    padding: 8px 15px;
-    border-radius: 7px;
-    color: #c7cbd1;
-    background: #111419;
-    border: 1px solid #2a2f38;
-    font-size: 14px;
-    cursor: pointer;
-    transition:
-        background 0.15s,
-        border-color 0.15s,
-        color 0.15s;
-}
-
-.dashboard-nav-links button:hover {
-    background: #171a20;
-    border-color: #383f4a;
-    color: #f5f5f5;
-}
-
 .dashboard-content {
     width: 100%;
     max-width: 900px;

@@ -3,7 +3,7 @@ import CreateSecret from "../components/CreateSecret";
 import MySecrets from "../components/MySecrets";
 import { logout } from "../services/authService";
 import "./Dashboard.css";
-
+import Navbar from "../components/Navbar";
 function Dashboard() {
   const handleLogout = async () => {
     try {
@@ -16,16 +16,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <nav className="dashboard-nav">
-        <Link className="dashboard-logo" to="/">
-          Lalynk
-        </Link>
-
-        <div className="dashboard-nav-links">
-          <button onClick={handleLogout}>Log out</button>
-        </div>
-      </nav>
-
+      <Navbar></Navbar>
       <main className="dashboard-content">
         <section className="dashboard-header">
           <p className="dashboard-label">Your workspace</p>
