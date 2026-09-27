@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { baseUrl } from "../config";
-import { getCurrentUser } from "../services/authService";
-import Navbar from "../components/Navbar";
+import { baseUrl } from "../../config";
+import { getCurrentUser } from "../../services/authService";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
   const user = getCurrentUser();

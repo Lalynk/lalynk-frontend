@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createSecret } from "../services/secretService";
+import { createSecret } from "../../services/secretService";
 import "./CreateSecret.css";
 
 function CreateSecret() {
@@ -25,9 +25,7 @@ function CreateSecret() {
 
       const expirationTime = expirationMap[expiration];
 
-      const expiresAt = new Date(
-        Date.now() + expirationTime
-      ).toISOString();
+      const expiresAt = new Date(Date.now() + expirationTime).toISOString();
 
       const secret = await createSecret(content, expiresAt);
 
@@ -102,9 +100,7 @@ function CreateSecret() {
             {copied ? "Copied!" : "Copy link"}
           </button>
 
-          <button onClick={handleCreateAnother}>
-            Create another secret
-          </button>
+          <button onClick={handleCreateAnother}>Create another secret</button>
         </div>
       )}
     </div>
