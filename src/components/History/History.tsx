@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./History.css";
 import HistoryItem from "./HistoryItem";
-import { getSecrets } from "../../services/secretService";
+import { getSecrets, revokeSecret } from "../../services/secretService";
 import type { SecretSummaryDTO } from "../../entities/SecretSummaryDTO";
 
 function History() {
@@ -16,6 +16,20 @@ function History() {
     loadSecrets();
   }, []);
 
+  async function handleRevoke(id: string) {
+    const secretSummaryDTO = await revokeSecret(id);
+
+    const updatedSecrets = secrets.map((secret) => {
+      if (secret.id === id) {
+        return secretSummaryDTO;
+      }
+
+      return secret;
+    });
+
+    setSecrets(updatedSecrets);
+  }
+
   return (
     <section className="history">
       <div className="history-header">
@@ -24,7 +38,11 @@ function History() {
 
       <div className="history-list">
         {secrets.map((secret) => (
-          <HistoryItem key={secret.id} secret={secret}></HistoryItem>
+          <HistoryItem
+            key={secret.id}
+            secret={secret}
+            onRevoked={handleRevoke}
+          ></HistoryItem>
         ))}
       </div>
     </section>
