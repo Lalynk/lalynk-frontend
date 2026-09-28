@@ -32,7 +32,7 @@ export async function createSecret(content: string, expiresAt: string | null): P
 
 }
 
-export async function revokeSecret(id: string) {
+export async function revokeSecret(id: string): Promise<SecretSummaryDTO> {
     const token = getCsrfToken();
 
     if(token== null) {
@@ -54,7 +54,7 @@ export async function revokeSecret(id: string) {
         throw new Error("Could not revoke secret");
     }
 
-
+    return await response.json();
 }
 
 export async function getSecrets(): Promise<SecretSummaryDTO[]> {

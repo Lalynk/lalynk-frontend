@@ -20,7 +20,7 @@ export function FormatRelativeTime(dateString: string): string {
     const diffInHours = Math.floor(diffInMinutes/ 60);
 
     if(diffInHours < 24) {
-        return `${diffInMinutes} hours ago`;
+        return `${diffInHours} hours ago`;
     }
 
     const diffInDays = Math.floor(diffInHours / 24);
@@ -38,7 +38,7 @@ export function formatExpiresAt(dateString: string | null): string {
     const date = new Date(dateString);
     const now = new Date();
 
-    const diffInSeconds = Math.floor((date.getDate() - now .getDate()) / 1000);
+    const diffInSeconds = Math.floor((date.getTime() - now .getTime()) / 1000);
 
     if(diffInSeconds<=0) {
         return "Expired";
@@ -53,11 +53,11 @@ export function formatExpiresAt(dateString: string | null): string {
     const diffInHours = Math.floor(diffInMinutes / 60);
 
     if(diffInHours < 24) {
-        return `Expires in ${diffInMinutes} hours`;
+        return `Expires in ${diffInHours} hours`;
     }
 
     const diffInDays = Math.floor(diffInHours / 24);
 
-    return `$Expires in ${diffInDays} days`;
+    return `Expires in ${diffInDays} days`;
 
 }

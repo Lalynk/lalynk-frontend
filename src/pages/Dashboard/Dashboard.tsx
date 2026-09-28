@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { getCurrentUser } from "../../services/authService";
 import SecretHistory from "../../components/History/History";
 import CreateSecret from "../../components/CreateSecret/CreateSecret";
+import Footer from "../../components/Footer/Footer";
 
 function Dashboard() {
   const user = getCurrentUser();
@@ -11,7 +12,6 @@ function Dashboard() {
   return (
     <div className="dashboard-page">
       <Navbar></Navbar>
-
       <main className="dashboard">
         <div className="dashboard-container">
           <h1>Welcome back, {email}</h1>
@@ -21,6 +21,7 @@ function Dashboard() {
           </div>
         </div>
       </main>
+      <Footer></Footer>
     </div>
   );
 }
