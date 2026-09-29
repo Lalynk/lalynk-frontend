@@ -34,7 +34,7 @@
     color: var(--color-text-muted);
     font-family: inherit;
     text-decoration: none;
-
+    font-size: 1rem;
     background: none;
     border: 0;
     padding: 0;

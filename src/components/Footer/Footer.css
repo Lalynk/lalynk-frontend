@@ -15,7 +15,7 @@
 
 .creater-container {
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .footer-left p {
