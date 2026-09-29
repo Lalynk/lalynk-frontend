@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import PublicSecret from "./pages/PublicSecret";
+import Home from "./pages/Home/Home";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import PublicSecret from "./pages/PublicSecret/PublicSecret";
 import { useEffect, useState } from "react";
 import { initializeAuth } from "./services/authService";
-import About from "./pages/About";
+import About from "./pages/About/About";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Loading from "./components/Loading";
+import Loading from "./components/Loading/Loading";
 
 function App() {
   const [authLoading, setAuthLoading] = useState(true);

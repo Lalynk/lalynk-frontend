@@ -3,13 +3,13 @@ import { Navigate } from "react-router-dom";
 import { getCurrentUser } from "../services/authService";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-    const user = getCurrentUser();
+  const user = getCurrentUser();
 
-    if (!user?.authenticated) {
-        return <Navigate to="/" replace />;
-    }
+  if (!user?.authenticated) {
+    return <Navigate to="/" replace />;
+  }
 
-    return children;
+  return children;
 }
 
 export default ProtectedRoute;

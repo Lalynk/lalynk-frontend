@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getPublicSecret } from "../services/secretService";
+import { getPublicSecret } from "../../services/secretService";
 import "./PublicSecret.css";
 
 function PublicSecret() {

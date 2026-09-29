@@ -1,0 +1,45 @@
+.footer {
+    width: 100%;
+    max-width: var(--content-width);
+    justify-content: space-between;
+    display: flex;
+    margin: auto;
+    padding: 0.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-left {
+    display: flex;
+    gap: 2rem;
+}
+
+.creater-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.footer-left p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.creater-container a {
+    color: var(--color-text-muted);
+}
+
+.footer-left span {
+    font-style: italic;
+    font-size: 0.875rem;
+}
+
+.footer-right a {
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+.footer-right a:hover {
+    color: var(--color-text);
+}
+

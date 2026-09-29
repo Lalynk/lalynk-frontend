@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { baseUrl } from "../config";
-import { getCurrentUser } from "../services/authService";
+import { baseUrl } from "../../config";
+import { getCurrentUser } from "../../services/authService";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
   const user = getCurrentUser();
@@ -9,30 +10,7 @@ function Home() {
 
   return (
     <div className="home">
-      <nav className="home-nav">
-        <Link className="logo" to="/">
-          Lalynk
-        </Link>
-
-        <div className="nav-links">
-          <Link to="/about">About</Link>
-
-          {isAuthenticated ? (
-            <Link className="nav-dashboard" to="/dashboard">
-              Dashboard
-            </Link>
-          ) : (
-            <button
-              className="nav-login"
-              onClick={() => {
-                window.location.href = `${baseUrl}/auth/login`;
-              }}
-            >
-              Log in
-            </button>
-          )}
-        </div>
-      </nav>
+      <Navbar></Navbar>
 
       <main>
         <section className="hero">
