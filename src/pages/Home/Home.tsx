@@ -1,90 +1,32 @@
-import { Link } from "react-router-dom";
-import "./Home.css";
-import { baseUrl } from "../../config";
-import { getCurrentUser } from "../../services/authService";
+import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
+import "./Home.css";
 
 function Home() {
-  const user = getCurrentUser();
-  const isAuthenticated = user?.authenticated ?? false;
-
   return (
-    <div className="home">
+    <div className="home-page">
       <Navbar></Navbar>
-
-      <main>
-        <section className="hero">
-          <div className="security-label">
-            <span className="status-dot"></span>
-            Secure one-time sharing
-          </div>
-
-          <h1>
-            Share sensitive information.
-            <span> With confidence.</span>
-          </h1>
-
-          <p className="hero-description">
-            Create a secret, share the link, and let Lalynk handle the rest.
-            Secrets are available only once and can optionally expire
-            automatically.
-          </p>
-
-          {!isAuthenticated && (
-            <div className="hero-actions">
-              <button
-                className="primary-button"
-                onClick={() => {
-                  window.location.href = `${baseUrl}/auth/login`;
-                }}
-              >
-                Get started
-              </button>
+      <main className="home">
+        <div className="home-container">
+          <div className="hero">
+            <h1>Welcome to lalynk</h1>
+            <p>Share your secrets.</p>
+            <div className="slogan">
+              <p>Fast.</p>
+              <p>Securely.</p>
             </div>
-          )}
-        </section>
-
-        <section className="features">
-          <div className="feature-card">
-            <div className="feature-icon">01</div>
-
-            <h2>One-time access</h2>
-
-            <p>
-              A secret can only be opened once. After it has been viewed, it is
-              no longer available.
-            </p>
+            <div className="hero-description">
+              <p>
+                Create a one-time link for your secret. Share it with anyone -
+                no account required to open the link.
+              </p>
+            </div>
+            <button>Create a secret</button>
           </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">02</div>
-
-            <h2>No account required</h2>
-
-            <p>
-              Recipients can open a secret directly from the link without
-              creating a Lalynk account.
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon">03</div>
-
-            <h2>Automatic expiration</h2>
-
-            <p>
-              Set an expiration time and let Lalynk invalidate the secret
-              automatically.
-            </p>
-          </div>
-        </section>
+        </div>
       </main>
 
-      <footer className="home-footer">
-        <span>© 2026 Lalynk</span>
-
-        <Link to="/about">About</Link>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 }
