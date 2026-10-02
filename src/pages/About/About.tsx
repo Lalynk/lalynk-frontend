@@ -1,97 +1,87 @@
-import { Link } from "react-router-dom";
-import "./About.css";
+import { FaGithub } from "react-icons/fa";
+import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
+import "./About.css";
+import { FiClock, FiLink, FiShield, FiZap } from "react-icons/fi";
 
 function About() {
   return (
     <div className="about-page">
       <Navbar></Navbar>
 
-      <main className="about-content">
-        <section className="about-intro">
-          <p className="about-label">About Lalynk</p>
-
-          <h1>
-            Simple sharing.
-            <span> Temporary access.</span>
-          </h1>
-
-          <p className="about-lead">
-            Lalynk is a simple way to share sensitive information through
-            secure, one-time links.
-          </p>
-        </section>
-
-        <section className="about-section">
-          <div className="section-number">01</div>
-
-          <div>
-            <h2>How it works</h2>
-
-            <p>
-              Create a secret and Lalynk generates a unique link for it. Share
-              the link with the recipient, who can open the secret without
-              creating an account.
-            </p>
-
-            <p>Once the secret has been viewed, it can no longer be opened.</p>
-          </div>
-        </section>
-
-        <section className="about-section">
-          <div className="section-number">02</div>
-
-          <div>
-            <h2>Security</h2>
-
-            <p>
-              Lalynk uses randomly generated links to protect access to secrets.
-              The links contain enough randomness to make guessing a secret
-              impractical.
-            </p>
-
-            <div className="security-card">
-              <div className="security-card-header">
-                <span className="security-status"></span>
-
-                <strong>Normal mode</strong>
-              </div>
+      <main className="about">
+        <div className="about-container">
+          <section className="about-hero">
+            <div className="about-header-section">
+              <h1>ABOUT</h1>
+            </div>
+            <div className="about-description">
+              <h2>Simple, temporary secret sharing.</h2>
+              <p>
+                Lalynk makes it seasy to share sensitive information through
+                temporary one-time links.
+              </p>
+              <p>
+                Create a secret, chose how long it should remain abailable, and
+                share the generated link with the recipient. The recpipent
+                does'nt need an account - they simply open the link to access
+                the secret.
+              </p>
 
               <p>
-                Secrets are protected by a unique, randomly generated link and
-                can only be viewed once.
+                Secrets can expire automatically or be revoked by the creator at
+                any time
               </p>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="about-section">
-          <div className="section-number">03</div>
-
-          <div>
-            <h2>Ultra Safe mode</h2>
-
-            <p>
-              Ultra Safe mode is planned as a future security option for
-              situations where additional protection is required.
-            </p>
-
-            <div className="planned-badge">Coming later</div>
-          </div>
-        </section>
-
-        <section className="about-cta">
-          <p>Ready to share something securely?</p>
-
-          <Link to="/" className="about-button">
-            Get started
-          </Link>
-        </section>
+          <section className="about-section">
+            <div className="why-container">
+              <h2>WHY LALYNK?</h2>
+              <div className="why-grid">
+                <div className="about-card">
+                  <div className="why-icon">
+                    <FiZap></FiZap>
+                  </div>
+                  <div className="about-card-description">
+                    <h3>Simple</h3>
+                    <p>Create and share a secret in a few clicks</p>
+                  </div>
+                </div>
+                <div className="about-card">
+                  <div className="why-icon">
+                    <FiClock></FiClock>
+                  </div>
+                  <div className="about-card-description">
+                    <h3>Temporary</h3>
+                    <p>Secrets can automatically expire.</p>
+                  </div>
+                </div>
+                <div className="about-card">
+                  <div className="why-icon">
+                    <FiLink></FiLink>
+                  </div>
+                  <div className="about-card-description">
+                    <h3>No account for recepiant</h3>
+                    <p>Just open the link.</p>
+                  </div>
+                </div>
+                <div className="about-card">
+                  <div className="why-icon">
+                    <FiShield></FiShield>
+                  </div>
+                  <div className="about-card-description">
+                    <h3>Control</h3>
+                    <p>Creators can revoke active secrets.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
 
-      <footer className="about-footer">
-        <span>© 2026 Lalynk</span>
-      </footer>
+      <Footer></Footer>
     </div>
   );
 }
