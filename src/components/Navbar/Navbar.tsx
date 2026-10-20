@@ -16,15 +16,9 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        {isAuthenticated ? (
-          <Link to="/dashboard" className="logo">
-            Lalynk
-          </Link>
-        ) : (
-          <Link to="/" className="logo">
-            Lalynk
-          </Link>
-        )}
+        <Link to="/" className="logo">
+          Lalynk
+        </Link>
 
         <div className="nav-links">
           {isAuthenticated ? (

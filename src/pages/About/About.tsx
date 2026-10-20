@@ -1,4 +1,3 @@
-import { FaGithub } from "react-icons/fa";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import "./About.css";
@@ -18,19 +17,20 @@ function About() {
             <div className="about-description">
               <h2>Simple, temporary secret sharing.</h2>
               <p>
-                Lalynk makes it seasy to share sensitive information through
-                temporary one-time links.
+                • Temporary, one-time links for sharing sensitive information.
               </p>
               <p>
-                Create a secret, chose how long it should remain abailable, and
-                share the generated link with the recipient. The recpipent
-                does'nt need an account - they simply open the link to access
-                the secret.
+                • Create a secret and share the generated link with the
+                recipient.
+              </p>
+              <p>
+                • No account is required to access a secret. Simply open the
+                link to view it.
               </p>
 
               <p>
-                Secrets can expire automatically or be revoked by the creator at
-                any time
+                • Secrets expire automatically or can be revoked by the creator
+                at any time.
               </p>
             </div>
           </section>
@@ -45,7 +45,7 @@ function About() {
                   </div>
                   <div className="about-card-description">
                     <h3>Simple</h3>
-                    <p>Create and share a secret in a few clicks</p>
+                    <p>Create and share a secret in a few clicks.</p>
                   </div>
                 </div>
                 <div className="about-card">
@@ -54,7 +54,7 @@ function About() {
                   </div>
                   <div className="about-card-description">
                     <h3>Temporary</h3>
-                    <p>Secrets can automatically expire.</p>
+                    <p>Secrets automatically expire.</p>
                   </div>
                 </div>
                 <div className="about-card">
@@ -62,8 +62,8 @@ function About() {
                     <FiLink></FiLink>
                   </div>
                   <div className="about-card-description">
-                    <h3>No account for recepiant</h3>
-                    <p>Just open the link.</p>
+                    <h3>No account required</h3>
+                    <p>Recipients can simply open the link.</p>
                   </div>
                 </div>
                 <div className="about-card">
@@ -72,7 +72,7 @@ function About() {
                   </div>
                   <div className="about-card-description">
                     <h3>Control</h3>
-                    <p>Creators can revoke active secrets.</p>
+                    <p>Creators can revoke active secrets at any time.</p>
                   </div>
                 </div>
               </div>
