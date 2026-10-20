@@ -45,7 +45,8 @@ function Dashboard() {
       <Navbar></Navbar>
       <main className="dashboard">
         <div className="dashboard-container">
-          <h1>Welcome back, {email}.</h1>
+          <h1 className="">DASHBOARD</h1>
+          <h2>Welcome back, {email}.</h2>
           <div className="dashboard-content">
             <CreateSecret
               onCreated={(createdSummary) => handleCreated(createdSummary)}

@@ -58,14 +58,15 @@ function CreateSecret({ onCreated }: CreatedSecretProps) {
             <option value="168">7 days</option>
             <option value="720">30 days</option>
           </select>
+
           <button onClick={() => handleCreate()}>Create</button>
         </div>
       </div>
 
       {secretLink && (
         <div className="secret-result">
-          <label>Secret link: </label>
-          <input value={secretLink} readOnly></input>
+          <label>Secret link </label>
+          <input className="link-input" value={secretLink} readOnly></input>
 
           <div className="secret-result-actions">
             <button
