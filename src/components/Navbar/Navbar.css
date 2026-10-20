@@ -46,3 +46,10 @@
 .nav-links button:hover {
     color: var(--color-text);
 }
+
+
+@media(max-width:768px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+}

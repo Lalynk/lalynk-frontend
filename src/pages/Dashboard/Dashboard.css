@@ -7,8 +7,13 @@
 
 .dashboard {
     width: 100%;
-    padding-top: 4rem;
     flex: 1;
+}
+
+.dashboard h1{
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent);
 }
 
 .dashboard-container {
@@ -17,9 +22,10 @@
     margin: 0 auto;
 }
 
-.dashboard-container h1 {
+.dashboard-container h2 {
     font-size: 2rem;
     font-weight: 600;
+    margin-top: 4rem;
 }
 
 .dashboard-content {
@@ -27,5 +33,19 @@
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     margin-top: 2rem;
+    align-items: start;
 } 
 
+@media(max-width: 768px) {
+    .dashboard-content {
+        grid-template-columns: 1fr;
+        margin-bottom: 1.5rem;
+    }
+    .dashboard-container {
+        padding: 0 1rem;
+    }
+
+    .dashboard-container h2 {
+        overflow-wrap: anywhere;
+    }
+}
