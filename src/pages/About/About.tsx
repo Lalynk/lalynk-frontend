@@ -37,7 +37,7 @@ function About() {
 
           <section className="about-section">
             <div className="why-container">
-              <h2>WHY LALYNK?</h2>
+              <h2>WHY LALYNK??</h2>
               <div className="why-grid">
                 <div className="about-card">
                   <div className="why-icon">
