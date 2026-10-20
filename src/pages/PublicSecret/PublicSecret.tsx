@@ -5,12 +5,14 @@ import { useParams } from "react-router-dom";
 import "./PublicSecret.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { FiEye } from "react-icons/fi";
+import Loading from "../../components/Loading/Loading";
 
 function PublicSecret() {
   const { publicToken } = useParams();
   const [content, setContent] = useState("");
   const [copied, setCopied] = useState("Copy");
   const [isActive, setIsActive] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function handlePublicSecret() {
@@ -21,14 +23,16 @@ function PublicSecret() {
           setIsActive(true);
         }
       } catch (error) {
-        setContent(
-          "Already consumed",
-        );
+        setContent("Already consumed");
         setIsActive(false);
       }
     }
-    handlePublicSecret();
+    handlePublicSecret().finally(() => setIsLoading(false));
   }, []);
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <div className="pub-secret-page">
